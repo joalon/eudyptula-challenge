@@ -4,6 +4,10 @@ Date: Fri, 7 Jul 2017 11:05:16 +0200
 Subject: [PATCH] Did a version change in the top level Makefile, added
  '-eudyptula'
 
+The EXTRAVERSION was a bit bland.
+
+Signed-off-by: Joakim Lönnegren <joakimlonnegren@gmail.com>
+
 ---
  Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
