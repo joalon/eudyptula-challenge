@@ -1,0 +1,5 @@
+[    0.000000] Linux version 4.12.0-eudyptula-03441-g1996454-dirty (root@localhost.localdomain) (gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) ) #6 SMP Thu Jul 6 17:57:41 CEST 2017
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-4.12.0-eudyptula-03441-g1996454-dirty root=/dev/mapper/fedora-root ro rd.lvm.lv=fedora/root rd.lvm.lv=fedora/swap rhgb quiet LANG=en_GB.UTF-8
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'

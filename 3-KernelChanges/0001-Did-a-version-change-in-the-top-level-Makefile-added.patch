@@ -1,0 +1,26 @@
+From 13b907a9da27113f6b02becd6fbbd0d426db80ec Mon Sep 17 00:00:00 2001
+From: root <root@localhost.localdomain>
+Date: Fri, 7 Jul 2017 11:05:16 +0200
+Subject: [PATCH] Did a version change in the top level Makefile, added
+ '-eudyptula'
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index d7cb037..a45dfc0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ VERSION = 4
+ PATCHLEVEL = 12
+ SUBLEVEL = 0
+-EXTRAVERSION =
++EXTRAVERSION = -eudyptula
+ NAME = Fearless Coyote
+ 
+ # *DOCUMENTATION*
+-- 
+2.9.3
+
