@@ -14,7 +14,7 @@ int do_work(int *my_int, int retval)
 
 	if (y < 10)
 		// That was a long sleep, tell userspace about it
-		dev_dbg("We slept a long time!");
+		printk(KERN_DEBUG "We slept a long time!");
 
 	z = x * y;
 

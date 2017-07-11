@@ -6,9 +6,9 @@ static int __init hello_init(void)
 {
 	printk(KERN_DEBUG "Hello, world!\n");
 	return 0;
+}
 
-
-static void __exit hello_cleanup(void) 
+static void __exit hello_cleanup(void)
 {
 	printk(KERN_DEBUG "Goodbye, world!\n");
 }
@@ -16,6 +16,6 @@ static void __exit hello_cleanup(void)
 module_init(hello_init);
 module_exit(hello_cleanup);
 
-MODULE_LICENSE("WTFPL");
+MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Excersing kernel building");
 MODULE_AUTHOR("Joakim Lönnegren");
