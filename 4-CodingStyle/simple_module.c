@@ -4,13 +4,13 @@
 
 static int __init hello_init(void)
 {
-	printk(KERN_DEBUG "Hello, world!\n");
+	pr_debug("Hello, world!\n");
 	return 0;
 }
 
 static void __exit hello_cleanup(void)
 {
-	printk(KERN_DEBUG "Goodbye, world!\n");
+	pr_debug("Goodbye, world!\n");
 }
 
 module_init(hello_init);
