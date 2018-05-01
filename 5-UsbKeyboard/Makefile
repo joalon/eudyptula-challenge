@@ -1,4 +1,4 @@
-COMPILE_KERNEL?=/usr/src/kernels/$(shell uname -r)/
+COMPILE_KERNEL?=/usr/src/linux-headers-$(shell uname -r)/
 
 CFLAGS_simple_module.o := -DDEBUG
 obj-m += simple_module.o
