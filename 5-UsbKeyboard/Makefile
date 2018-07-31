@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 COMPILE_KERNEL?=/usr/lib/modules/$(shell uname -r)/build
+=======
+COMPILE_KERNEL?=/usr/src/linux-headers-$(shell uname -r)/
+>>>>>>> dd33a3a1dfea1769fe5dcea215e00669cd3ff933
 
 CFLAGS_simple_driver.o := -DDEBUG
 obj-m += simple_driver.o
