@@ -3,15 +3,13 @@
 #include <linux/init.h>
 #include <linux/usb.h>
 
-#define VENDOR_ID 0x046d
-#define PRODUCT_ID 0xc069
-
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("A simple device driver");
 MODULE_AUTHOR("Joakim Lönnegren");
 
 static struct usb_device_id simple_table [] = {
-	{ USB_DEVICE(VENDOR_ID, PRODUCT_ID) },
+	{ USB_INTERFACE_INFO(USB_INTERFACE_CLASS_HID, USB_INTERFACE_SUBCLASS_BOOT, 
+			USB_INTERFACE_PROTOCOL_KEYBOARD) },
 	{}
 };
 MODULE_DEVICE_TABLE(usb, simple_table);
