@@ -7,20 +7,12 @@ MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("A simple device driver");
 MODULE_AUTHOR("Joakim Lönnegren");
 
-<<<<<<< Updated upstream
 static struct usb_device_id simple_table [] = {
 	{ USB_INTERFACE_INFO(USB_INTERFACE_CLASS_HID, USB_INTERFACE_SUBCLASS_BOOT, 
 			USB_INTERFACE_PROTOCOL_KEYBOARD) },
 	{}
 };
 MODULE_DEVICE_TABLE(usb, simple_table);
-=======
-//static struct usb_device_id simple_table [] = {
-//	{ USB_DEVICE(VENDOR_ID, PRODUCT_ID) },
-//	{}
-//};
-//MODULE_DEVICE_TABLE(usb, simple_table);
->>>>>>> Stashed changes
 
 static int simple_probe(struct usb_interface *interface, const struct usb_device_id *id)
 {
@@ -35,7 +27,7 @@ static void simple_disconnect(struct usb_interface *interface)
 
 static struct usb_driver simple_driver = {
 	.name		= "Simple driver",
-//	.id_table	= simple_table,
+	.id_table	= simple_table,
 	.probe 		= simple_probe,
 	.disconnect	= simple_disconnect
 };
