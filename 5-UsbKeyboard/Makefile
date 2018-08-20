@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 COMPILE_KERNEL?=/usr/lib/modules/$(shell uname -r)/build
-=======
-COMPILE_KERNEL?=/usr/src/linux-headers-$(shell uname -r)/
->>>>>>> dd33a3a1dfea1769fe5dcea215e00669cd3ff933
-
 CFLAGS_simple_driver.o := -DDEBUG
 obj-m += simple_driver.o
 
@@ -17,13 +12,13 @@ install: simple_driver.ko
 	sudo cp /lib/modules/4.17.6-1-ARCH/kernel/drivers/hid/usbhid/usbhid.ko.xz .
 	sudo rmmod usbhid
 	sudo cp simple_driver.ko /lib/modules/4.17.6-1-ARCH/kernel/drivers/hid/usbhid/simple_driver.ko
-	sudo sed -i 's/usbhid.ko.xz/simple_driver.ko/g'
+	sudo sed -i 's/usbhid.ko.xz/simple_driver.ko/g' /lib/modules/4.17.6-1-ARCH/modules.dep
 	sudo depmod -a
 
 uninstall: usbhid.ko.xz
 	sudo rmmod simple_driver
 	sudo cp usbhid.ko.xz /lib/modules/4.17.6-1-ARCH/kernel/drivers/hid/usbhid/usbhid.ko.xz
-	sudo sed -i 's/simple_driver.ko/usbhid.ko.xz/g' /lib/modules/4.17.6-1-ARCH/kernel/
+	sudo sed -i 's/simple_driver.ko/usbhid.ko.xz/g' /lib/modules/4.17.6-1-ARCH/modules.dep
 	sudo depmod -a
 	sudo rm usbhid.ko.xz
 
