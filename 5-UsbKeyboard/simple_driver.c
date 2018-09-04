@@ -14,42 +14,14 @@ static struct usb_device_id simple_table [] = {
 };
 MODULE_DEVICE_TABLE(usb, simple_table);
 
-static int simple_probe(struct usb_interface *interface, const struct usb_device_id *id)
-{
-	pr_debug("simple_driver: USB probe called\n");
-	return 0;
-}
-
-static void simple_disconnect(struct usb_interface *interface)
-{
-	pr_debug("simple_driver: USB disconnect called\n");
-}
-
-static struct usb_driver simple_driver = {
-	.name		= "Simple driver",
-	.id_table	= simple_table,
-	.probe 		= simple_probe,
-	.disconnect	= simple_disconnect
-};
-
 static int simple_init(void)
 {
-	int result;
-
-	result = usb_register(&simple_driver);
-	if (result < 0) {
-		pr_debug("simple_driver: usb_register failed, error number %d\n", result);
-		return -1;
-	}
-
 	pr_debug("simple_driver: Hello, world!\n");
 	return 0;
 }
 
 static void simple_exit(void)
 {
-	usb_deregister(&simple_driver);
-
 	pr_debug("simple_driver: Goodbye, world!\n");
 }
 
