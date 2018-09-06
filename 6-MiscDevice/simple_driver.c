@@ -1,27 +1,31 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/usb.h>
-#include <linux/hid.h>
+#include <linux/miscdevice.h>
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("A simple device driver");
 MODULE_AUTHOR("Joakim Lönnegren");
 
-static struct usb_device_id simple_table [] = {
-	{ USB_INTERFACE_INFO(USB_INTERFACE_CLASS_HID, USB_INTERFACE_SUBCLASS_BOOT, 
-			USB_INTERFACE_PROTOCOL_MOUSE) },
-	{}
-};
-MODULE_DEVICE_TABLE(usb, simple_table);
+struct miscdevice *simple_device;
 
 static int simple_init(void)
 {
+
+	simple_device->minor = MISC_DYNAMIC_MINOR;
+	simple_device->name = "simple";
+
+	int ret = misc_register(simple_device);
+	if (ret)
+		return ret;
+
+	pr_debug("simple_driver: got minor %d\n", simple_device.minor);
 	pr_debug("simple_driver: Hello, world!\n");
 	return 0;
 }
 
 static void simple_exit(void)
 {
+	misc_unregister(simple_device);
 	pr_debug("simple_driver: Goodbye, world!\n");
 }
 
