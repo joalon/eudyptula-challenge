@@ -3,7 +3,7 @@ CFLAGS_simple_driver.o := -DDEBUG
 obj-m += simple_driver.o
 
 all:
-	make -C $(COMPILE_KERNEL) M=$(PWD) modules
+	make -C $(COMPILE_KERNEL) M=$(PWD) modules -I string
 
 clean:
 	make -C $(COMPILE_KERNEL) M=$(PWD) clean
