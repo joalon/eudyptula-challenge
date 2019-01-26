@@ -11,31 +11,22 @@ MODULE_DESCRIPTION("A simple device driver");
 MODULE_AUTHOR("Joakim Lönnegren");
 
 struct miscdevice simple_device;
-static char var[] = "ede3f266a0f6\n\0";
+static char eudyptula_id[] = "ede3f266a0f6\n\0";
 
-ssize_t simple_write(struct file *f, const char *input, size_t count, loff_t *position) {
-	if (strcmp(var, input) == 0) {
-		pr_debug("simple_driver: got my eudyptula id!\n");
-	} else {
-		pr_debug("simple_driver: didn't get eudyptula id!\n");
+ssize_t simple_write(struct file *f, const char *input, size_t count, loff_t *position) 
+{
+	if (strncmp(eudyptula_id, input, count) != 0) {
+		pr_debug("simple_driver: did not match my eudyptula id\n");
 		return -EINVAL;
 	}
 
-	*position += count;
+	pr_debug("simple_driver: got my eudyptula id\n");
 	return count;
 }
 
-ssize_t simple_read(struct file *f, char *user_buffer, size_t count, loff_t *position) {
-	if (*position >= sizeof(var)){
-		pr_debug("simple_driver: tried to read further than there is data!\n");
-		return 0;
-	}
-
-	if (*position + count > sizeof(var))
-		count = sizeof(var) - *position;
-	*position += count;
-
-	if (copy_to_user(user_buffer, var, count) != 0)
+ssize_t simple_read(struct file *f, char *user_buffer, size_t count, loff_t *position) 
+{
+	if (copy_to_user(user_buffer, &eudyptula_id, sizeof(eudyptula_id)) != 0)
 		return -EFAULT;
 
 	return count;
