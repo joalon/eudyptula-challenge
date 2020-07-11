@@ -7,8 +7,8 @@ MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("A simple device driver");
 MODULE_AUTHOR("Joakim Lönnegren");
 
-static struct usb_device_id simple_table [] = {
-	{ USB_INTERFACE_INFO(USB_INTERFACE_CLASS_HID, USB_INTERFACE_SUBCLASS_BOOT, 
+static struct usb_device_id simple_table[] = {
+	{ USB_INTERFACE_INFO(USB_INTERFACE_CLASS_HID, USB_INTERFACE_SUBCLASS_BOOT,
 			USB_INTERFACE_PROTOCOL_MOUSE) },
 	{}
 };
@@ -27,4 +27,3 @@ static void simple_exit(void)
 
 module_init(simple_init);
 module_exit(simple_exit);
-

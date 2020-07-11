@@ -1,0 +1,19 @@
+commit c1ffc10c8b53c7b49cabb4631af2df38080d98b6
+Author: Joakim Lönnegren <joakimlonnegren@gmail.om>
+Date:   Fri Jun 12 18:59:14 2020 -0300
+
+    Add a flashy extraversion in Makefile
+
+diff --git a/Makefile b/Makefile
+index fd31992bf918..48c7a9cf41da 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 5
+ PATCHLEVEL = 7
+ SUBLEVEL = 0
+-EXTRAVERSION =
++EXTRAVERSION = -eudyptula
+ NAME = Kleptomaniac Octopus
+ 
+ # *DOCUMENTATION*

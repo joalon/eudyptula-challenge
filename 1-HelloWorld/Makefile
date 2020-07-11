@@ -1,4 +1,4 @@
-COMPILE_KERNEL?=/usr/src/kernels/$(shell uname -r)/
+COMPILE_KERNEL?=/usr/src/linux/
 
 obj-m += simple_module.o
 

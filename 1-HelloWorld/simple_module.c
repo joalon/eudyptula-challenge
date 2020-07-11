@@ -1,6 +1,5 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/init.h>
 
 static int __init hello_init(void)
 {
