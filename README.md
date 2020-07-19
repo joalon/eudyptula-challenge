@@ -1,4 +1,4 @@
-# eudyptula-challenge
+# Eudyptula challenge
 
 A series of programming exercises for the linux kernel.
 
